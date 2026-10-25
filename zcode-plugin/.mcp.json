@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "voice-mcp": {
+      "command": "voice-mcp",
+      "args": ["--stub", "--status"],
+      "env": {
+        "VOICE_MCP_STUB": "1",
+        "VOICE_MCP_LOCALE": "ru-RU"
+      }
+    }
+  }
+}

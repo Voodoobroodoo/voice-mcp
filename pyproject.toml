@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-mcp"
+version = "0.1.0"
+description = "Local MCP voice presence server for ZCode (listen/speak/session/barge-in)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Voice Presence Project" }]
+dependencies = [
+  # Official FastMCP lives in mcp 1.x (`from mcp.server.fastmcp import FastMCP`).
+  # mcp 2.x renames it to MCPServer — pin <2 for the stable documented API.
+  "mcp>=1.9,<2",
+]
+
+[project.optional-dependencies]
+real = [
+  "numpy>=1.26",
+  "sounddevice>=0.4.6",
+  "faster-whisper>=1.0",
+  "torch>=2.1",
+  "onnxruntime>=1.16",
+  "omegaconf>=2.3",
+  "scipy>=1.11",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.24",
+]
+gui = [
+  "pystray>=0.19",
+  "pillow>=10",
+]
+
+[project.scripts]
+voice-mcp = "voice_mcp.__main__:main"
+voice-mcp-gui = "voice_mcp.gui.app:run_gui"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+# Discovered even when pytest.ini is missed; requires pytest-asyncio installed via [dev]
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = ["-p", "no:cacheprovider"]

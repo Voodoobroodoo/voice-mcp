@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "voice-mcp": {
+      "command": "voice-mcp",
+      "args": ["--stub"],
+      "env": {
+        "VOICE_MCP_STUB": "1",
+        "VOICE_MCP_LOCALE": "ru-RU"
+      }
+    }
+  },
+  "_comments": {
+    "install": "pip install -e /ABS/PATH/TO/voice-mcp  → voice-mcp on PATH",
+    "alt_without_install": {
+      "command": "python3",
+      "args": ["-m", "voice_mcp", "--stub"],
+      "env": {
+        "VOICE_MCP_STUB": "1",
+        "PYTHONPATH": "/ABS/PATH/TO/voice-mcp/src"
+      }
+    },
+    "real": "args: [--real], env VOICE_MCP_STUB=0 + requirements-real.txt + PortAudio",
+    "gui_attach": "args: [--stub|--real, --status] then run voice-mcp-gui --attach",
+    "skill_plugin": "../zcode-plugin/",
+    "runbook": "../../docs/pc-runbook.md"
+  }
+}

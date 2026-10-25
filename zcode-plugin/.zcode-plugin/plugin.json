@@ -1,0 +1,9 @@
+{
+  "name": "voice-presence",
+  "version": "0.1.0",
+  "description": "Голосовой presence layer для ZCode Agent: MCP listen/speak + skill duplex-цикла",
+  "license": "MIT",
+  "keywords": ["voice", "mcp", "speech", "tts", "stt"],
+  "skills": "skills",
+  "mcpServers": ".mcp.json"
+}

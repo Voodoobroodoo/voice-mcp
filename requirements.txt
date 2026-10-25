@@ -1,0 +1,2 @@
+# Core (stub mode). Pin mcp 1.x for official FastMCP.
+mcp>=1.9,<2

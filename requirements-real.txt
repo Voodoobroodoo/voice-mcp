@@ -1,0 +1,20 @@
+# Real local engines (install on the target PC with mic/speakers)
+-r requirements.txt
+numpy>=1.26
+sounddevice>=0.4.6
+onnxruntime>=1.16
+faster-whisper>=1.0
+# Silero TTS (CC BY-NC for many RU voices) — CPU wheel is enough:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.1
+omegaconf>=2.3
+scipy>=1.11
+# Silero hub may pull more transitive deps on first load
+
+# System: PortAudio (sounddevice). Examples:
+#   Debian/Ubuntu: sudo apt install portaudio19-dev
+#   macOS: brew install portaudio
+#   Windows: usually bundled with sounddevice wheels
+
+# Piper fallback (optional binary, not pip): set VOICE_MCP_TTS=piper and
+# VOICE_MCP_PIPER_VOICE=/path/to/ru_RU-....onnx
